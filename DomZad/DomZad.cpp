@@ -8,7 +8,11 @@ int main()
 	std::string chek = "";
 	int koofpiz;
 	float skid1;
+	int skid1koof;
 	float skid2;
+	float skid2sum;
+	int skid3koof;
+	float skid3;
 	int allpiz = 0;
 	int ch1 = 0;
 	int ch2 = 0;
@@ -28,6 +32,7 @@ int main()
 	int cokesum;
 	int liptgr = 0;
 	int liptbl = 0;
+	
 	std::cout << "Добро пожаловать в нашу пиццерию!\n";
 	std::cout << "Желаете сделать заказ?(1 - да, 2 - нет)\n";
 	std::cin >> choise;
@@ -37,7 +42,7 @@ int main()
 
 		do
 		{
-			std::cout << "Выбрите пиццу!(1 - пепперони(6,64 доллара), 2 - греческая(6,68 доллара), 3 - барбекю(6,6 доллара), 4 - четыре сыра(6,67 доллара), 5 - пицца не нужна)\n";
+			std::cout << "Выбрите пиццу!(1 - пепперони(6.64 доллара), 2 - греческая(6.68 доллара), 3 - барбекю(6.6 доллара), 4 - четыре сыра(6.67 доллара), 5 - пицца не нужна)\n";
 			std::cin >> pizz;
 			std::cout << "Выберите количество пиццы!\n";
 			std::cin >> kolvopizz;
@@ -49,6 +54,8 @@ int main()
 				{
 					koofpiz = kolvopizz / 5;
 					sumpizz = sumpizz - 6.64 * koofpiz;
+					skid2 = skid2++;
+					skid2sum = skid2sum + 6.64 + koofpiz;
 				}
 			}
 			else if (pizz == 2)
@@ -59,6 +66,8 @@ int main()
 				{
 					koofpiz = kolvopizz / 5;
 					sumpizz = sumpizz - 6.66 * koofpiz;
+					skid2 = skid2++;
+					skid2sum = skid2sum + 6.66 + koofpiz;
 				}
 			}
 			else if (pizz == 3)
@@ -69,6 +78,8 @@ int main()
 				{
 					koofpiz = kolvopizz / 5;
 					sumpizz = sumpizz - 6.6 * koofpiz;
+					skid2 = skid2++;
+					skid2sum = skid2sum + 6.6 + koofpiz;
 				}
 			}
 			else if (pizz == 4)
@@ -79,6 +90,8 @@ int main()
 				{
 					koofpiz = kolvopizz / 5;
 					sumpizz = sumpizz - 6.7 * koofpiz;
+					skid2 = skid2++;
+					skid2sum = skid2sum + 6.7 + koofpiz;
 				}
 			}
 			std::cout << koofpiz << "\n";
@@ -87,7 +100,7 @@ int main()
 		} while (ch1 != 1);
 		do
 		{
-			std::cout << "Выберите напиток! Цена за 0,5 литра (1 - Добрый кола(2 доллара), 2 - Липтон зелёный(0,27 доллара), 3 - Липтон чёрный(0.27 доллара), 4 - напиток не нужен)\n";
+			std::cout << "Выберите напиток! Цена за 0.5 литра (1 - Добрый кола(2 доллара), 2 - Липтон зелёный(1.5 доллара), 3 - Липтон чёрный(1.5 доллара), 4 - напиток не нужен)\n";
 			std::cin >> drink;
 			std::cout << "Выберите количество напитков!\n";
 			std::cin >> kolvodrink;
@@ -95,19 +108,19 @@ int main()
 			{
 				coke++;
 				std::cout << "Хорошо!\n";
-				sumdrink = sumdrink + 2 * kolvodrink;
+				sumdrink = sumdrink + 2.5 * kolvodrink;
 			}
 			else if (drink == 3)
 			{
 				liptgr++;
 				std::cout << "Хорошо!\n";
-				sumdrink = sumdrink + 0.27 * kolvodrink;
+				sumdrink = sumdrink + 1.5 * kolvodrink;
 			}
 			else if (drink == 4)
 			{
 				liptbl++;
 				std::cout << "Хорошо!\n";
-				sumdrink = sumdrink + 0.27 * kolvodrink;
+				sumdrink = sumdrink + 1.5 * kolvodrink;
 			}
 			else
 			{
@@ -120,18 +133,57 @@ int main()
 		if (sum > 50)
 		{
 			skid1 = sum * 0.2;
+			skid1koof++;
 		}
 		if (coke > 3)
 		{
-			cokesum = cokesum * 0.15;
+			skid3 = cokesum * 0.15;
+			skid3koof++;
 		}
-		sum = sum - skid1 - cokesum;
+		sum = sum - skid1 - skid3 - cokesum;
 		if (pep > 0)
 		{
-			std::cout << "Пеппперони - " << pep << " шт - " << 6.64 * pep << " долларов\n"
+			std::cout << "Пеппперони - " << pep << " шт - " << 6.64 * pep << " долларов\n";
 		}
-
-
+		if (grech > 0)
+		{
+			std::cout << "Греческая - " << grech << " шт - " << 6.66 * grech << " долларов\n";
+		}
+		if (barb > 0)
+		{
+			std::cout << "Барбекю - " << barb << " шт - " << 6.6 * barb << " долларов\n";
+		}
+		if (che4 > 0)
+		{
+			std::cout << "Четыре сыра - " << che4 << " шт - " << 6.7 * che4 << " долларов\n";
+		}
+		if (coke > 0)
+		{
+			std::cout << "Добрый кола - " << coke << " шт - " << 2.5 * coke << " долларов\n";
+		}
+		if (liptgr > 0)
+		{
+			std::cout << "Липтон зелёный - " << liptgr << " шт - " << 1.5 * liptgr;
+			std::cout << " долларов\n";
+		}
+		if (liptbl > 0)
+		{
+			std::cout << "Липтон чёрный - " << liptbl << " шт - " << 1.5 * liptbl;
+			std::cout << " долларов\n";
+		}
+		if (skid2 > 0)
+		{
+			std::cout << "Благодаря акции вы сьедите " << skid2 << " пиццы бесплатно и сэкономите " << skid2sum << " долларов\n";
+		}
+		if (skid3 > 0)
+		{
+			std::cout << "Благодаря акции вы сэкономите " << skid3 << " долларов на напитках\n";
+		}
+		if (skid1koof > 0)
+		{
+			std::cout << "Благодаря акции вы сэкономите " << skid2sum << " долларов\n";
+		}
+		std::cout << "Итоговая сумма: " << sum << " долларов\n";
 	}
 	else
 	{
