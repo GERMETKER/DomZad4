@@ -1,4 +1,4 @@
-﻿#include <Windows.h>
+#include <Windows.h>
 #include <iostream>
 
 int main()
@@ -6,13 +6,13 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	std::string chek = "";
-	int koofpiz;
-	float skid1;
-	int skid1koof;
-	float skid2;
-	float skid2sum;
-	int skid3koof;
-	float skid3;
+	int koofpiz = 0;
+	float skid1 = 0;
+	int skid1koof = 0;
+	float skid2 = 0;
+	float skid2sum = 0;
+	int skid3koof = 0;
+	float skid3 = 0;
 	int allpiz = 0;
 	int ch1 = 0;
 	int ch2 = 0;
@@ -29,7 +29,7 @@ int main()
 	int barb = 0;
 	int che4 = 0;
 	int coke = 0;
-	int cokesum;
+	int cokesum = 0;
 	int liptgr = 0;
 	int liptbl = 0;
 	
@@ -48,7 +48,7 @@ int main()
 			std::cin >> kolvopizz;
 			if (pizz == 1)
 			{
-				pep++;
+				pep = pep + kolvopizz;
 				sumpizz = sumpizz + 6.64 * kolvopizz;
 				if (kolvopizz > 5)
 				{
@@ -60,7 +60,7 @@ int main()
 			}
 			else if (pizz == 2)
 			{
-				grech++;
+				grech = grech + kolvopizz;
 				sumpizz = sumpizz + 6.66 * kolvopizz;
 				if (kolvopizz > 5)
 				{
@@ -72,7 +72,7 @@ int main()
 			}
 			else if (pizz == 3)
 			{
-				barb++;
+				barb = barb + kolvopizz;
 				sumpizz = sumpizz + 6.6 * kolvopizz;
 				if (kolvopizz > 5)
 				{
@@ -84,7 +84,7 @@ int main()
 			}
 			else if (pizz == 4)
 			{
-				che4++;
+				che4 = che4 + kolvopizz;
 				sumpizz = sumpizz + 6.7 * kolvopizz;
 				if (kolvopizz > 5)
 				{
@@ -100,25 +100,25 @@ int main()
 		} while (ch1 != 1);
 		do
 		{
-			std::cout << "Выберите напиток! Цена за 0.5 литра (1 - Добрый кола(2 доллара), 2 - Липтон зелёный(1.5 доллара), 3 - Липтон чёрный(1.5 доллара), 4 - напиток не нужен)\n";
+			std::cout << "Выберите напиток! Цена за 0.5 литра (1 - Добрый кола(2.5 доллара), 2 - Липтон зелёный(1.5 доллара), 3 - Липтон чёрный(1.5 доллара), 4 - напиток не нужен)\n";
 			std::cin >> drink;
 			std::cout << "Выберите количество напитков!\n";
 			std::cin >> kolvodrink;
 			if (drink == 1)
 			{
-				coke++;
+				coke = coke + kolvodrink;
 				std::cout << "Хорошо!\n";
 				sumdrink = sumdrink + 2.5 * kolvodrink;
 			}
 			else if (drink == 3)
 			{
-				liptgr++;
+				liptgr = liptgr + kolvodrink;
 				std::cout << "Хорошо!\n";
 				sumdrink = sumdrink + 1.5 * kolvodrink;
 			}
 			else if (drink == 4)
 			{
-				liptbl++;
+				liptbl = liptbl + kolvodrink;
 				std::cout << "Хорошо!\n";
 				sumdrink = sumdrink + 1.5 * kolvodrink;
 			}
